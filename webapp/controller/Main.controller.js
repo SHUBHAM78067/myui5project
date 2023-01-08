@@ -65,7 +65,7 @@ sap.ui.define(
           this.getView().byId("btnSave").setEnabled(true).setVisible(true);
           this.getView().byId("btnCancel").setEnabled(true).setVisible(true);
         } else {
-          var msg = "HELLO PULLKIT";
+          var msg = "Kindly fill the mendatory field";
           MessageToast.show(msg);
           this.getView().byId("mcbState").setValueState("Error");
         }
