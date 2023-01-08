@@ -39,7 +39,6 @@ sap.ui.define(
 
       onSelect2: function (oEvent) {
         this.getView().byId("mcbPlant").setEnabled(true);
-        // this.setMode("stop");
       },
       onSelect3: function (oEvent) {
         this.setMode("run");
@@ -59,14 +58,6 @@ sap.ui.define(
           this.getView().byId("mcbPin").setEnabled(true);
         }
       },
-      // onStateFinish: function(oEvent){
-      //
-      //   if () {
-      //
-
-      //   }
-
-      // },
 
       onProgress: function () {
         if (this.mode === "run") {
@@ -74,7 +65,7 @@ sap.ui.define(
           this.getView().byId("btnSave").setEnabled(true).setVisible(true);
           this.getView().byId("btnCancel").setEnabled(true).setVisible(true);
         } else {
-          var msg = "Kindly fill the mendatory field";
+          var msg = "HELLO PULLKIT";
           MessageToast.show(msg);
           this.getView().byId("mcbState").setValueState("Error");
         }
