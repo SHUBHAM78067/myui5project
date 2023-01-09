@@ -23,16 +23,25 @@ sap.ui.define(
       },
       onSelect1: function (oEvent) {
         debugger;
-
-        this.getView().byId("mcbPin").setEnabled(true);
-        this.getView().byId("mcbState").setValueState("None");
+        var name1 = oEvent.getParameters().selectedItem;
+        if (name1 === null) {
+          this.getView()
+            .byId("mcbState")
+            .setValueState("Error")
+            .clearSelection();
+          this.getView().byId("mcbPin").setEnabled(false);
+          var msg = "Kindly fill the mendatory field";
+          MessageToast.show(msg);
+        } else {
+          this.getView().byId("mcbPin").setEnabled(true);
+          this.getView().byId("mcbState").setValueState("None");
+        }
       },
       onChange: function (oEvent) {
         var state = oEvent.getParameters().value;
         if (state === " ") {
           this.setMode("stop");
         } else {
-          this.getView().byId("mcbPin").setEnabled(true);
           this.getView().byId("mcbState").setValueState("None");
         }
       },
@@ -51,8 +60,6 @@ sap.ui.define(
           this.setMode("stop");
           this.getView().byId("mcbPin").setEnabled(true);
           this.getView().byId("mcbPlant").setEnabled(false);
-
-
         } else {
           this.setMode("run");
           this.getView().byId("mcbPin").setEnabled(true);
@@ -71,26 +78,22 @@ sap.ui.define(
         }
       },
 
-      // mode: "run",
-      // mode: "stop",
-
       setMode: function (sMode) {
         this.mode = sMode;
-        if (this.mode === "stop") 
-        {
+        if (this.mode === "stop") {
           this.getView()
             .byId("mcbPin")
-            .setEnabled(false).removeAllSelectedItems();
+            .setEnabled(false)
+            .removeAllSelectedItems();
           this.getView()
-            .byId("mcbPlant").setEnabled(false)
+            .byId("mcbPlant")
+            .setEnabled(false)
             .removeAllSelectedItems();
           this.getView().byId("idEmpTab").setVisible(false);
           this.getView().byId("btnSave").setEnabled(false).setVisible(false);
           this.getView().byId("btnCancel").setEnabled(false).setVisible(false);
         } else {
-        this.getView().byId("mcbPlant").setEnabled(true);
-
-        //   this.setMode("run");
+          this.getView().byId("mcbPlant").setEnabled(true);
         }
       },
 
