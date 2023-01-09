@@ -38,11 +38,19 @@ sap.ui.define(
         }
       },
       onChange: function (oEvent) {
+        debugger;
+
         var state = oEvent.getParameters().value;
         if (state === " ") {
           this.setMode("stop");
         } else {
-          this.getView().byId("mcbState").setValueState("None");
+          var name2 = oEvent.getParameters().itemPressed;
+
+          if (name2 === false) {
+            this.setMode("stop");
+          } else {
+            this.getView().byId("mcbState").setValueState("None");
+          }
         }
       },
 
@@ -92,6 +100,7 @@ sap.ui.define(
           this.getView().byId("idEmpTab").setVisible(false);
           this.getView().byId("btnSave").setEnabled(false).setVisible(false);
           this.getView().byId("btnCancel").setEnabled(false).setVisible(false);
+          this.getView().byId("mcbState").clearSelection();
         } else {
           this.getView().byId("mcbPlant").setEnabled(true);
         }
