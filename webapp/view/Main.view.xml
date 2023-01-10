@@ -4,12 +4,126 @@
     <!-- <l:VerticalLayout class="sapUiContentPadding"> -->
     <!-- <webc:TextArea id="textResult" value="Change event result" class="sapUiSmallMargin"/> -->
     <!-- </l:VerticalLayout> -->
+    <Panel expandable="true" headerText="Terms" width="auto" class="sapUiResponsiveMargin">
+        <f:Form id="SimpleFormToolbar" editable="true">
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="6" labelSpanL="6" labelSpanM="4" labelSpanS="2"  emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="12" columnsL="6" columnsM="4"  singleContainerFullSize="false" />
+            </f:layout>
+
+            <f:FormContainer ariaLabelledBy="Title1">
+                <f:FormElement label="Payment Group">
+                    <ComboBox id="1" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+
+                <f:FormElement label="Inco Terms">
+                    <ComboBox id="2" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+
+                <f:FormElement label="Valid From">
+                    <ComboBox id="3" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+
+                <f:FormElement label="Country">
+                    <ComboBox id="4" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+
+                <f:FormElement label="Purchase Group">
+                    <ComboBox id="5" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+
+                <f:FormElement label="Tolerance Under">
+                    <ComboBox id="6" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+                <f:layoutData>
+                    <f:GridContainerData halfGrid="true" />
+                </f:layoutData>
+            </f:FormContainer>
+
+            <f:FormContainer ariaLabelledBy="Title2">
+                <f:FormElement label="Payment Terms">
+                    <ComboBox id="a" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+
+                <f:FormElement label="Inco Location1">
+                    <ComboBox id="b" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+
+                <f:FormElement label="Valid To">
+                    <ComboBox id="c" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+
+                <f:FormElement label="Region">
+                    <ComboBox id="d" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+
+                <f:FormElement label="Lead Time">
+                    <ComboBox id="e" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+
+                <f:FormElement label="Tolerance Over">
+                    <ComboBox id="f" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+                        <items>
+                            <core:Item key="{taluk}" text="{taluk}" />
+                        </items>
+                    </ComboBox>
+                </f:FormElement>
+                <f:layoutData>
+                    <f:GridContainerData halfGrid="true" />
+                </f:layoutData>
+            </f:FormContainer>
+        </f:Form>
+    </Panel>
+
     <l:VerticalLayout class="sapUiContentPadding">
         <Label text="DatePicker" labelFor="DP1" />
         <!-- <pattern numbers="hebr">dd/mm/yyyy</pattern> -->
         <!-- formatPattern="short"  -->
         <!-- displayFormat="dd-MM-yyyy" valueFormat="dd-MM-yyyy" -->
-        <DatePicker id="DP1" change="handleChange" class="sapUiSmallMarginBottom" afterValueHelpOpen="onafterValueHelpOpen" displayFormat="dd-MM-yyyy"  />
+        <DatePicker id="DP1" change="handleChange" class="sapUiSmallMarginBottom" afterValueHelpOpen="onafterValueHelpOpen" displayFormat="dd-MM-yyyy" />
     </l:VerticalLayout>
     <l:VerticalLayout class="sapUiContentPadding">
         <Label text="State (Mendatory Field)" />
