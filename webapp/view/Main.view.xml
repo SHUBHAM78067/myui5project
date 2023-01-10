@@ -1,92 +1,95 @@
-<minion:View xmlns:networkgraph="sap.suite.ui.commons.networkgraph"
-             xmlns:core="sap.ui.core" 
-             xmlns:minion="sap.ui.core.mvc" 
-             xmlns:l="sap.ui.layout"
-             xmlns="sap.m"
-             xmlns:f="sap.ui.layout.form"
-             xmlns:t="sap.ui.table" controllerName="mickey.controller.Main">
+<minion:View xmlns:networkgraph="sap.suite.ui.commons.networkgraph" xmlns:core="sap.ui.core" xmlns:minion="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table" controllerName="mickey.controller.Main">
     <!-- <Input id="idInp" value="Superman" width="30%"></Input> -->
     <!-- rows="{path : '/empTab'}" -->
+    <!-- <l:VerticalLayout class="sapUiContentPadding"> -->
+    <!-- <webc:TextArea id="textResult" value="Change event result" class="sapUiSmallMargin"/> -->
+    <!-- </l:VerticalLayout> -->
+    <l:VerticalLayout class="sapUiContentPadding">
+        <Label text="DatePicker" labelFor="DP1" />
+        <!-- <pattern numbers="hebr">dd/mm/yyyy</pattern> -->
+        <!-- formatPattern="short"  -->
+        <DatePicker id="DP1" change="handleChange" class="sapUiSmallMarginBottom" afterValueHelpOpen="onafterValueHelpOpen"  />
+    </l:VerticalLayout>
+    <l:VerticalLayout class="sapUiContentPadding">
+        <Label text="State (Mendatory Field)" />
+        <ComboBox id="mcbState" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
+            <items>
+                <core:Item key="{taluk}" text="{taluk}" />
+            </items>
+        </ComboBox>
 
-    <Label text="State (Mendatory Field)" />
-    <ComboBox id="mcbState" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true"  >
-        <items>
-            <core:Item key="{taluk}" text="{taluk}" />
-        </items>
-    </ComboBox>
+        <Label text="PinCode" />
+        <MultiComboBox id="mcbPin" items="{/pincode}" enabled="false" selectionChange="onSelect2" selectionFinish="onPinCodeFinish">
+            <items>
+                <core:Item key="{pincode}" text="{pincode}" />
+            </items>
+        </MultiComboBox>
 
-    <Label text="PinCode" />
-    <MultiComboBox id="mcbPin" items="{/pincode}" enabled="false" selectionChange="onSelect2" selectionFinish="onPinCodeFinish">
-        <items>
-            <core:Item key="{pincode}" text="{pincode}" />
-        </items>
-    </MultiComboBox>
+        <Label text="Plant" />
+        <MultiComboBox id="mcbPlant" items="{/pincode}" enabled="false" selectionChange="onSelect3">
+            <items>
+                <core:Item key="{officeName}" text="{officeName}" />
+            </items>
+        </MultiComboBox>
 
-    <Label text="Plant" />
-    <MultiComboBox id="mcbPlant" items="{/pincode}" enabled="false" selectionChange="onSelect3" >
-        <items>
-            <core:Item  key="{officeName}" text="{officeName}" />
-        </items>
-    </MultiComboBox>
+        <Button id="btnProg" text="Progress" type="Accept" press="onProgress" enabled="true" />
 
-    <Button id="btnProg" text="Progress" type="Accept" press="onProgress" enabled="true" />
-
-    <t:Table id="idEmpTab" visibleRowCount="5" selectionMode="Single" rowSelectionChange="onRowSelect" visible="false">
-        <t:columns>
-            <t:Column label="{i18n>XLBL_EMPID}">
-                <t:template>
-                    <Text text="{empId}" />
-                </t:template>
-            </t:Column>
-            <t:Column>
-                <t:label>
-                    <Text text="{i18n>XLBL_EMPNAME}" />
-                </t:label>
-                <t:template>
-                    <Input value="{path : 'empName', formatter: '.formatter.convertName'}" />
-                </t:template>
-            </t:Column>
-            <t:Column label="{i18n>XLBL_SALARY}">
-                <t:template>
-                    <HBox>
-                        <Text text="{ parts: [ { path: 'salary'  },
+        <t:Table id="idEmpTab" visibleRowCount="5" selectionMode="Single" rowSelectionChange="onRowSelect" visible="false">
+            <t:columns>
+                <t:Column label="{i18n>XLBL_EMPID}">
+                    <t:template>
+                        <Text text="{empId}" />
+                    </t:template>
+                </t:Column>
+                <t:Column>
+                    <t:label>
+                        <Text text="{i18n>XLBL_EMPNAME}" />
+                    </t:label>
+                    <t:template>
+                        <Input value="{path : 'empName', formatter: '.formatter.convertName'}" />
+                    </t:template>
+                </t:Column>
+                <t:Column label="{i18n>XLBL_SALARY}">
+                    <t:template>
+                        <HBox>
+                            <Text text="{ parts: [ { path: 'salary'  },
                                                { path: 'currency'}
                                              ],
                                       formatter: '.formatter.getAmountFormatted'
                         }" />
-                    </HBox>
-                </t:template>
-            </t:Column>
-            <t:Column label="{i18n>XLBL_SMK}">
-                <t:template>
-                    <CheckBox selected="{= ${smoker} === 'true' ? true : false}" />
-                </t:template>
-            </t:Column>
-            <t:Column label="{i18n>XLBL_GEN}">
-                <t:template>
-                    <Image width="30px" height="30px" src="{gender}" />
-                </t:template>
-            </t:Column>
-            <t:Column label="{i18n>XLBL_RATE}">
-                <t:template>
-                    <RatingIndicator value="{rating}" />
-                </t:template>
-            </t:Column>
-            <t:Column label="{i18n>XLBL_MSTAT}">
-                <t:template>
-                    <Select selectedKey="{mStat}">
-                        <items>
-                            <core:Item key="M" text="Married" />
-                            <core:Item key="S" text="Single" />
-                            <core:Item key="H" text="Happily Married" />
-                        </items>
-                    </Select>
-                </t:template>
-            </t:Column>
-        </t:columns>
-    </t:Table>
+                        </HBox>
+                    </t:template>
+                </t:Column>
+                <t:Column label="{i18n>XLBL_SMK}">
+                    <t:template>
+                        <CheckBox selected="{= ${smoker} === 'true' ? true : false}" />
+                    </t:template>
+                </t:Column>
+                <t:Column label="{i18n>XLBL_GEN}">
+                    <t:template>
+                        <Image width="30px" height="30px" src="{gender}" />
+                    </t:template>
+                </t:Column>
+                <t:Column label="{i18n>XLBL_RATE}">
+                    <t:template>
+                        <RatingIndicator value="{rating}" />
+                    </t:template>
+                </t:Column>
+                <t:Column label="{i18n>XLBL_MSTAT}">
+                    <t:template>
+                        <Select selectedKey="{mStat}">
+                            <items>
+                                <core:Item key="M" text="Married" />
+                                <core:Item key="S" text="Single" />
+                                <core:Item key="H" text="Happily Married" />
+                            </items>
+                        </Select>
+                    </t:template>
+                </t:Column>
+            </t:columns>
+        </t:Table>
 
-    <!-- <f:SimpleForm title="{i18n>XTIT_MYEMP}" editable="true" id="idSimple">
+        <!-- <f:SimpleForm title="{i18n>XTIT_MYEMP}" editable="true" id="idSimple">
        
         <f:content>
             <Label text="{i18n>XLBL_EMPID}"></Label>
@@ -101,13 +104,15 @@
             <CheckBox id="idSmk" width="40%" selected="{smoker}" ></CheckBox>
         </f:content>
     </f:SimpleForm> -->
-    <!-- <Switch change="onSwtChange" /> -->
-    <!-- <footer> -->
-    <Toolbar>
-        <ToolbarSpacer />
-        <Button id="btnSave" text="Save" type="Accept" press="onSave" enabled="false" />
-        <Button id="btnCancel" text="Cancel" type="Reject" press="onCancel" enabled="false" />
-    </Toolbar>
+        <!-- <Switch change="onSwtChange" /> -->
+        <!-- <footer> -->
+        <Toolbar>
+            <ToolbarSpacer />
+            <Button id="btnSave" text="Save" type="Accept" press="onSave" enabled="false" />
+            <Button id="btnCancel" text="Cancel" type="Reject" press="onCancel" enabled="false" />
+        </Toolbar>
+    </l:VerticalLayout>
+
     <!-- </footer> -->
     <!-- <Button text="{i18n>XBUT_CHANGE}" press="onChangeData"></Button> -->
     <!-- <Button text="{i18n>XBUT_NEW}" press="anotherFx"></Button> -->

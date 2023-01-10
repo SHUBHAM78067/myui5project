@@ -21,6 +21,21 @@ sap.ui.define(
 
         //alert("my xml view is live in action 😊");
       },
+      onafterValueHelpOpen: function(oEvent){
+        debugger;
+        x = new Date();
+        var dateValue = oEvent.getSource().getDateValue();
+        if (dateValue === null) {
+          this.getView().byId("DP1").setValue(x);
+          this.getView().byId("DP1").setMinDate(x);
+        } 
+        
+
+      },
+      handleChange: function (oEvent) {
+        today = oEvent.getSource().getDateValue();
+        this.getView().byId("DP1").setMinDate(today);
+      },
       onSelect1: function (oEvent) {
         debugger;
         var name1 = oEvent.getParameters().selectedItem;
@@ -170,6 +185,16 @@ sap.ui.define(
 
         //this.getView().byId("idEmpTab").bindRows("/empTab");
         this.getView().byId("idEmpTab").bindAggregation("rows", "/empTab");
+
+        var oModel = Model.createJSONModel();
+        oModel.setData({
+          dateValue: new Date()
+        });
+        this.getView().setModel(oModel);
+  
+        // this.getView().byId("DP1").setMinDate("1/1/23");
+        // this.getView().byId("DP1").setMaxDate("12/31/23");
+        // this.getView().byId("DP1").setValue(null);
 
         //Syntax No. 3: for binding property
         //this.getView().byId("idSal").bindValue("/empStr/salary");
