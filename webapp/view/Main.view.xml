@@ -8,7 +8,8 @@
         <Label text="DatePicker" labelFor="DP1" />
         <!-- <pattern numbers="hebr">dd/mm/yyyy</pattern> -->
         <!-- formatPattern="short"  -->
-        <DatePicker id="DP1" change="handleChange" class="sapUiSmallMarginBottom" afterValueHelpOpen="onafterValueHelpOpen" valueFormat="dd.mm.yyyy"  />
+        <!-- displayFormat="dd-MM-yyyy" valueFormat="dd-MM-yyyy" -->
+        <DatePicker id="DP1" change="handleChange" class="sapUiSmallMarginBottom" afterValueHelpOpen="onafterValueHelpOpen" displayFormat="dd-MM-yyyy"  />
     </l:VerticalLayout>
     <l:VerticalLayout class="sapUiContentPadding">
         <Label text="State (Mendatory Field)" />

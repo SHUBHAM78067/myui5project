@@ -23,12 +23,14 @@ sap.ui.define(
       },
       onafterValueHelpOpen: function(oEvent){
         debugger;
-        x = new Date();
-        var dateValue = oEvent.getSource().getDateValue();
-        if (dateValue === null) {
-          this.getView().byId("DP1").setValue(x);
+        oEvent.getSource().setDisplayFormat("dd-MM-yyyy");
+        oEvent.getSource().setValueFormat("dd-MM-yyyy");
+        var x = new Date();
+        // var dateValue = oEvent.getSource().getDateValue();
+        // if (dateValue === null) {
+        //   this.getView().byId("DP1").setValue(x);
           this.getView().byId("DP1").setMinDate(x);
-        } 
+        // } 
         
 
       },
