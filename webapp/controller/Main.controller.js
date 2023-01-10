@@ -32,10 +32,10 @@ sap.ui.define(
         
 
       },
-      handleChange: function (oEvent) {
-        today = oEvent.getSource().getDateValue();
-        this.getView().byId("DP1").setMinDate(today);
-      },
+      // handleChange: function (oEvent) {
+        // today = oEvent.getSource().getDateValue();
+        // this.getView().byId("DP1").setMinDate(today);
+      // },
       onSelect1: function (oEvent) {
         debugger;
         var name1 = oEvent.getParameters().selectedItem;
