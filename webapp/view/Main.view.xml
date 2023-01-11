@@ -7,7 +7,10 @@
     <Panel expandable="true" headerText="Terms" width="auto" class="sapUiResponsiveMargin">
         <f:Form id="SimpleFormToolbar" editable="true">
             <f:layout>
-                <f:ResponsiveGridLayout labelSpanXL="6" labelSpanL="6" labelSpanM="4" labelSpanS="2"  emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="12" columnsL="6" columnsM="4"  singleContainerFullSize="false" />
+                <f:ResponsiveGridLayout labelSpanXL="8" labelSpanL="8" labelSpanM="8" 
+                                        labelSpanS="8" emptySpanXL="0" emptySpanL="0" 
+                                        emptySpanM="0" emptySpanS="0" columnsXL="3" 
+                                        columnsL="3" columnsM="3" singleContainerFullSize="false" />
             </f:layout>
 
             <f:FormContainer ariaLabelledBy="Title1">
@@ -28,11 +31,7 @@
                 </f:FormElement>
 
                 <f:FormElement label="Valid From">
-                    <ComboBox id="3" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
-                        <items>
-                            <core:Item key="{taluk}" text="{taluk}" />
-                        </items>
-                    </ComboBox>
+                    <DatePicker id="DP" change="handleChange" class="sapUiSmallMarginBottom" afterValueHelpOpen="onafterValueHelpOpen" displayFormat="dd-MM-yyyy" required="true" />
                 </f:FormElement>
 
                 <f:FormElement label="Country">
@@ -52,11 +51,7 @@
                 </f:FormElement>
 
                 <f:FormElement label="Tolerance Under">
-                    <ComboBox id="6" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
-                        <items>
-                            <core:Item key="{taluk}" text="{taluk}" />
-                        </items>
-                    </ComboBox>
+                    <Input placeholder="Max.20%" required="true" />
                 </f:FormElement>
                 <f:layoutData>
                     <f:GridContainerData halfGrid="true" />
@@ -73,19 +68,11 @@
                 </f:FormElement>
 
                 <f:FormElement label="Inco Location1">
-                    <ComboBox id="b" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
-                        <items>
-                            <core:Item key="{taluk}" text="{taluk}" />
-                        </items>
-                    </ComboBox>
+                    <Input placeholder="Max.70 char." required="true" />
                 </f:FormElement>
 
                 <f:FormElement label="Valid To">
-                    <ComboBox id="c" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
-                        <items>
-                            <core:Item key="{taluk}" text="{taluk}" />
-                        </items>
-                    </ComboBox>
+                    <DatePicker id="DP2" change="handleChange" class="sapUiSmallMarginBottom" afterValueHelpOpen="onafterValueHelpOpen" displayFormat="dd-MM-yyyy" required="true" />
                 </f:FormElement>
 
                 <f:FormElement label="Region">
@@ -97,19 +84,11 @@
                 </f:FormElement>
 
                 <f:FormElement label="Lead Time">
-                    <ComboBox id="e" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
-                        <items>
-                            <core:Item key="{taluk}" text="{taluk}" />
-                        </items>
-                    </ComboBox>
+                    <Input placeholder="Max.3 Digits" required="true" />
                 </f:FormElement>
 
                 <f:FormElement label="Tolerance Over">
-                    <ComboBox id="f" items="{/pincode}" valueState="None" selectionChange="onSelect1" change="onChange" required="true">
-                        <items>
-                            <core:Item key="{taluk}" text="{taluk}" />
-                        </items>
-                    </ComboBox>
+                    <Input placeholder="Max.20%" required="true" />
                 </f:FormElement>
                 <f:layoutData>
                     <f:GridContainerData halfGrid="true" />
