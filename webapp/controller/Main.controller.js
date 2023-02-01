@@ -123,6 +123,12 @@ sap.ui.define(
         }
       },
 
+
+      onBeforeRebindTable: function(Event){
+        debugger;
+      },
+
+
       onChangeData: function () {
         //Step 1: Get the model object
         var oModel = this.oCore.getModel();
@@ -187,6 +193,8 @@ sap.ui.define(
 
         //this.getView().byId("idEmpTab").bindRows("/empTab");
         this.getView().byId("idEmpTab").bindAggregation("rows", "/empTab");
+        this.getView().byId("idEmpTab2").bindAggregation("rows", "/empTab");
+
 
         var oModel = Model.createJSONModel();
         oModel.setData({
